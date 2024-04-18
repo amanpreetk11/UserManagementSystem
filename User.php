@@ -62,7 +62,13 @@ class User {
         $email = $sanitizedData['email'];
         $role = $sanitizedData['role'];
 
-        $password = base64_encode(rand());
+        $getRole = "select name from roles where id = '$role'";
+        $roleResult = $this->db->query($getRole);
+        while ($row = $roleResult->fetch_assoc()) {
+            $user_role = $row['name'];
+        }
+
+        $password = base64_encode($user_role);
         
         $query = "insert into users (first_name, last_name, email, password) VALUES ('$first_name', '$last_name', '$email', '$password')";
         $result = $this->db->query($query);
