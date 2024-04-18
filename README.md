@@ -19,7 +19,11 @@ Password - admin
 7. When user role person logins the system, he/she can access the users list but cannot modify it. This has been implemented using authenticateUser function in User.php class.
 
 Techniques used:
+
 -Data validation and sanitization: Implemented in the respective functions in User.php class after user input is received.
+
 -Dependency injection: Implemented in the User class constructor where the database connection is injected.
+
 -Inheritance principle: Implemented in the Role.php class which extends the User class to handle roles of users.
+
 -Separation of concern: Each class or function has a specific responsibility, such as the User class for user operations, and the Role class for user role operations.
